@@ -2,9 +2,13 @@
 2520 Reminder Term Project
 
 
-## How to Install
+## How to Install and run
 ```git clone https://github.com/confy/2520-ReminderProject.git```
 
 ```cd 2520-ReminderProject```
 
 ```npm install```
+
+```npm start```
+
+The project should now be up and running with nodemon!
