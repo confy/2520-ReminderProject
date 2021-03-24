@@ -1,6 +1,6 @@
 # March 10th (first sprint)
 ## Adrian Lee:
-
+  Implement update functionality
 
 ## Adrian McFarlane:
   Integrate passport login
