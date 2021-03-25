@@ -1,8 +1,8 @@
 # March 10th (first sprint)
-## Adrian Lee:
+### Adrian Lee:
   Implement update functionality
 
-## Adrian McFarlane:
+### Adrian McFarlane:
   Integrate passport login
   
   Isolate user reminders behind login
@@ -10,13 +10,15 @@
   Remove displaying hardcoded reminders
   
 
-## Victor Valero:
+### Victor Valero:
   Integrate passport login
   
   Isolate user reminders behind login
   
+  Assisted with update functionality
+  
   Remove displaying hardcoded reminders
 
-## Ingrid Zeng:
+### Ingrid Zeng:
   Implement delete functionality
   
