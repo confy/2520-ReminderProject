@@ -15,8 +15,6 @@
   
   Isolate user reminders behind login
   
-  Assisted with update functionality
-  
   Remove displaying hardcoded reminders
 
 ### Ingrid Zeng:
