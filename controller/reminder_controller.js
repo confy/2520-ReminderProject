@@ -35,7 +35,7 @@ let remindersController = {
         let reminderToFind = req.params.id;
         let searchResult = req.user.reminders.find(function(reminder) {
             return reminder.id == reminderToFind;
-            
+
         });
         res.render("reminder/edit", { reminderItem: searchResult });
     },
@@ -50,10 +50,9 @@ let remindersController = {
         updatedReminderDict.id = reminderToUpdate;
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
         console.log(req.user.reminders)
-        if(updatedReminderDict.completed === 'true'){
+        if (updatedReminderDict.completed === 'true') {
             updatedReminderDict.completed = true
-        }
-        else if (updatedReminderDict.completed === 'false') {
+        } else if (updatedReminderDict.completed === 'false') {
             updatedReminderDict.completed = false
         }
         res.redirect("/reminders");
@@ -64,7 +63,7 @@ let remindersController = {
         let searchIndex = req.user.reminders.findIndex(function(reminder) {
             return reminder.id == reminderToDelete
         });
-        delete req.user.reminders[searchIndex];
+        req.user.reminders.splice(searchIndex, 1);
         res.redirect("/reminders");
     },
 }
