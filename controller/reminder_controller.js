@@ -11,9 +11,7 @@ let remindersController = {
     listOne: (req, res) => {
         let reminderToFind = req.params.id;
         let searchResult = req.user.reminders.find(function(reminder) {
-            if (reminder !== undefined) {
-                return reminder.id == reminderToFind;
-            }
+            return reminder.id == reminderToFind;
         });
         if (searchResult != undefined) {
             res.render("reminder/single-reminder", { reminderItem: searchResult });
@@ -36,9 +34,8 @@ let remindersController = {
     edit: (req, res) => {
         let reminderToFind = req.params.id;
         let searchResult = req.user.reminders.find(function(reminder) {
-            if (reminder !== undefined) {
-                return reminder.id == reminderToFind;
-            }
+            return reminder.id == reminderToFind;
+            
         });
         res.render("reminder/edit", { reminderItem: searchResult });
     },
@@ -46,18 +43,17 @@ let remindersController = {
     update: (req, res) => {
         let reminderToUpdate = req.params.id;
         let searchIndex = req.user.reminders.findIndex(function(reminder) {
-            if (reminder !== undefined) {
-                return reminder.id == reminderToUpdate
-            }
+            return reminder.id == reminderToUpdate
         });
         delete req.user.reminders[searchIndex];
         let updatedReminderDict = req.body;
         updatedReminderDict.id = reminderToUpdate;
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
         console.log(req.user.reminders)
-        if (updatedReminderDict.completed === 'true') {
+        if(updatedReminderDict.completed === 'true'){
             updatedReminderDict.completed = true
-        } else if (updatedReminderDict.completed === 'false') {
+        }
+        else if (updatedReminderDict.completed === 'false') {
             updatedReminderDict.completed = false
         }
         res.redirect("/reminders");
@@ -66,9 +62,7 @@ let remindersController = {
     delete: (req, res) => {
         let reminderToDelete = req.params.id;
         let searchIndex = req.user.reminders.findIndex(function(reminder) {
-            if (reminder !== undefined) {
-                return reminder.id == reminderToDelete
-            }
+            return reminder.id == reminderToDelete
         });
         delete req.user.reminders[searchIndex];
         res.redirect("/reminders");
