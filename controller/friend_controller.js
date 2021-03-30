@@ -31,7 +31,6 @@ let friendsController = {
   add: (req, res) => {
     newFriend = parseInt(req.body.idFriend)
     req.user.friends.push(newFriend)
-    console.log(req.user.friends)
     res.redirect("/friends")
   }
 }
