@@ -16,6 +16,10 @@
   Isolate user reminders behind login
   
   Remove displaying hardcoded reminders
+  
+  Make friends page
+  
+  List current friends and their reminders
 
 ### Ingrid Zeng:
   Implement delete functionality
