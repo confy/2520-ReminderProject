@@ -12,3 +12,9 @@
 ```npm start```
 
 The project should now be up and running with nodemon!
+
+
+
+
+
+[Link to Breakdown of work](https://github.com/confy/2520-ReminderProject/blob/main/breakdownOfWork.MD)
