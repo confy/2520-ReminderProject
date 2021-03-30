@@ -7,7 +7,7 @@ let Database = [{
             { id: 2, title: "123", description: "potato", completed: true },
             { id: 3, title: "zyx", description: "123456789", completed: true }
         ],
-        friends: [],
+        friends: [2],
     },
     {
         id: 2,
