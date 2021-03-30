@@ -1,7 +1,21 @@
+const getUserById = require('./userController.js').getUserById
+
 let remindersController = {
     list: (req, res) => {
-
-        res.render("reminder/index", { reminders: req.user.reminders });
+      let friends = []
+      req.user.friends.forEach( friend => {
+        let user = getUserById(friend)
+        friends.push({
+          email: user.email,
+          reminders: user.reminders
+        })
+      })
+      console.log("List in reminder_controller")
+      console.log(friends)
+      res.render("reminder/index", { 
+        userFriends: friends,
+        reminders: req.user.reminders,
+      });
     },
 
     new: (req, res) => {

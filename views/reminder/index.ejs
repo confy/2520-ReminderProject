@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="page-header">Reminders</h1>
+  <h1 class="page-header">Your reminders</h1>
 
 <ul class="list-group">
   <% reminders.forEach(function (reminderItem) { %>
@@ -16,5 +16,26 @@
     </li>
   <% }) %>
 </ul>
-
+<p></p>
+<h2>Friends' reminders</h2>
+<ul class="list-group">
+    <% userFriends.forEach( function(friend) { %> 
+      <li class="list-group-item"><h6><%= friend.email %></h6>
+          <ul>
+          <% friend.reminders.forEach( function(reminder) { %> 
+              <li class="list-group-item">
+                  <strong><%= reminder.title %>: </strong>
+                  <%= reminder.description %>
+                  || Completed:
+                  <% if (reminder.completed == true) { %>
+                      <span class="badge badge-success">True</span>
+                  <% } else if (reminder.completed == false) { %>
+                      <span class="badge badge-danger">False</span>
+                  <% } %>
+              </li>
+          <% }) %>
+          </ul>
+      </li>
+    <% }) %>
+  </ul>
 </div>
