@@ -1,9 +1,10 @@
 const getUserById = require('./userController.js').getUserById
+const database = require('../database')
 
 let friendsController = {
   list: (req, res) => {
+    // User's current friends
     let friends = []
-
     req.user.friends.forEach( friend => {
       let user = getUserById(friend)
       friends.push({
@@ -11,8 +12,21 @@ let friendsController = {
         amount: user.reminders.length
       })
     })
-    res.render("friend/friends", { friends: friends })
+
+    // People user can add
+    let nonFriends = []
+    database.forEach( user => {
+      if (!(req.user.friends.includes(user.id)) && 
+      user.id !== req.user.id) {
+        nonFriends.push({
+          email: user.email,
+          amount: user.reminders.length,
+          id: user.id
+        })
+      }
+    })
+    res.render("friend/friends", { friends: friends, nonFriends: nonFriends })
   }
 }
 
-module.exports =friendsController
+module.exports = friendsController

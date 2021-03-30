@@ -14,10 +14,28 @@ let Database = [{
         email: "alex.johnson@gmail.com",
         password: "12345678",
         reminders: [
-          { id: 2, title: "haha", description: "uh oh *****, funny", completed: false }
+          { id: 2, title: "No reminder", description: "123553452", completed: false }
         ],
         friends: [],
-    }
+    },
+    {
+      id: 3,
+      email: "alice.potato@gmail.com",
+      password: "12345678",
+      reminders: [
+        { id: 2, title: "ha67467ha", description: "u896789", completed: false }
+      ],
+      friends: [],
+  },
+  {
+    id: 4,
+    email: "rillix.kuu@gmail.com",
+    password: "12345678",
+    reminders: [
+      { id: 2, title: "fsdjgiojho2", description: "67893562", completed: false }
+    ],
+    friends: [],
+},
 ]
 
 module.exports = Database;
