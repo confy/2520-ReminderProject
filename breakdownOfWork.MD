@@ -19,7 +19,9 @@
   
   Make friends page
   
-  List current friends and their reminders
+  List current friends and the amount of reminers they have
+  
+  List friends that can be added and the amount of reminders they have
 
 ### Ingrid Zeng:
   Implement delete functionality
