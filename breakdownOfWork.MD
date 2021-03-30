@@ -27,3 +27,5 @@
   List friends that can be added and the amount of reminders they have
   
   Adding friend functionality
+
+  Display friends' reminders in home page
