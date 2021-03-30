@@ -14,7 +14,8 @@ let Database = [{
         email: "alex.johnson@gmail.com",
         password: "12345678",
         reminders: [
-          { id: 2, title: "No reminder", description: "123553452", completed: false }
+          { id: 2, title: "asdfasednder", description: "123553452", completed: false },
+          { id: 1, title: "Test reminder :)", description: "Haha this is just a test reminder, trust me", completed: true },
         ],
         friends: [],
     },
