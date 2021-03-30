@@ -35,16 +35,6 @@ const indexRoute = require("./routes/indexRoute");
 app.use("/", indexRoute)
 app.use("/login", authRoute)
 
-
-// Implement this in the future
-// app.get("/reminder/:id/edit", reminderController.edit);
-// app.get("/register", authController.register);
-// app.post("/register", authController.registerSubmit);
-// // Implement this yourself
-// app.post("/reminder/update/:id", reminderController.update);
-
-
-
 app.listen(3001, function() {
     console.log(
         "Server running. Visit: localhost:3001/reminders in your browser 🚀"

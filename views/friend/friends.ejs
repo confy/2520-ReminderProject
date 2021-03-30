@@ -21,6 +21,10 @@
     <% nonFriends.forEach(function (user) { %>
       <li class="list-group-item"><strong><%= user.email %> | </strong>
         <%= user.amount %> reminders
+        <form action="/friends/add" method="POST">
+          <input type="hidden" name="idFriend" value="<%= user.id %>">
+          <button type="submit" class="btn btn-success">Add as friend</button>
+        </form>
       </li>
     <% }) %>
   </ul>

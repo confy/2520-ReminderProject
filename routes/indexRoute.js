@@ -13,4 +13,5 @@ router.post("/reminder/update/:id", ensureAuthenticated, reminderController.upda
 router.post("/reminder/delete/:id", ensureAuthenticated, reminderController.delete);
 
 router.get("/friends", ensureAuthenticated, friendsController.list)
+router.post("/friends/add", ensureAuthenticated, friendsController.add)
 module.exports = router;
