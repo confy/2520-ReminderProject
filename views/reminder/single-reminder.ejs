@@ -12,6 +12,7 @@
             <span class="label label-danger">False</span>
           <% } %>
         </h4>
+<<<<<<< HEAD
         <h4 style="color:grey">REMIND ME</h4>
           <% if ( distanceToNow != '') { %>
             <form class="deleteReminder" method="POST">
@@ -22,6 +23,25 @@
             <h4> Click edit to set a reminder time. </h4>
           <% } %>
 
+=======
+        <h6>Subtasks:</h6>
+        
+        <% if (reminderItem.subtasks.length == 0) { %>
+          <label>None</label>
+        <% } else {%>
+        <% reminderItem.subtasks.forEach((subtask) => { %>
+          <div class="form-check">
+          <% if (subtask.completed == true) { %>
+            <input class="form-check-input" type="checkbox" checked="checked" id="flexCheckDefault" disabled>
+          <% } else { %>
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" disabled>
+          <% } %>
+        <label class="form-check-label" for="flexCheckDefault">
+          <%= subtask.title %>
+        </label>
+      </div>
+        <% }) }%>
+>>>>>>> c81441f5417400fb8ba83ab2b392dcacb02144f0
         <a class="btn btn-warning" href=<%= "/reminder/" + reminderItem.id + "/edit" %>>Edit</a>
 
         <form class="deleteForm " method="POST" action=<%= "/reminder/delete/" + reminderItem.id %>>
@@ -30,5 +50,4 @@
 
       </li>
     </ul>
-
 </div>
