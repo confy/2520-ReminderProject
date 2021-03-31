@@ -17,12 +17,13 @@
       <% } else {%>
       <% reminderItem.subtasks.forEach((subtask) => { %>
         <div class="form-check">
+          <input class="form-check-input" type="hidden" name="<%= subtask.id %>" value="<%= subtask.title %>">
         <% if (subtask.completed == true) { %>
-          <input class="form-check-input" type="checkbox" checked="checked">
+          <input class="form-check-input" id="subtaskBox" type="checkbox" name="<%= subtask.id %>" value="<%= subtask.title %>" checked="checked">
         <% } else { %>
-          <input class="form-check-input" type="checkbox">
+          <input class="form-check-input" id="subtaskBox" type="checkbox" name="<%= subtask.id %>" value="<%= subtask.title %>">
         <% } %>
-        <label class="form-check-label" for="flexCheckDefault"><%= subtask.title %></label>
+        <label class="form-check-label" for="<%= subtask.id %>"><%= subtask.title %></label>
         </div>
     <% })}%>
     </div>

@@ -1,4 +1,25 @@
 const getUserById = require('./userController.js').getUserById
+const formatSubtasks = (body) => {
+    let subtasks = []
+    //Takes req.body and returns formatted subtasks in a list of objects
+    Object.keys(body).forEach(key => {
+        if (parseInt(key) == key){
+            // if the body id is an int it's a subtask
+            let currSubtask = {id: key}
+            console.log(body[key]);
+            if (Array.isArray(body[key])){
+                //if the subtask is an array - checkbox is marked - get the first one
+                currSubtask["title"] = body[key][0]
+                currSubtask["completed"] = true
+            } else {
+                currSubtask["title"] = body[key]
+                currSubtask["completed"] = false
+            }
+            subtasks.push(currSubtask)
+        }
+    })
+    return subtasks
+}
 
 let remindersController = {
     list: (req, res) => {
@@ -40,6 +61,7 @@ let remindersController = {
             title: req.body.title,
             description: req.body.description,
             completed: false,
+            subtasks: []
         };
         req.user.reminders.push(reminder);
         res.redirect("/reminders");
@@ -60,8 +82,15 @@ let remindersController = {
             return reminder.id == reminderToUpdate
         });
         delete req.user.reminders[searchIndex];
-        let updatedReminderDict = req.body;
-        updatedReminderDict.id = reminderToUpdate;
+
+        let updatedReminderDict = {
+            id: reminderToUpdate,
+            title: req.body.title,
+            description: req.body.description,
+            completed: req.body.completed,
+            subtasks: formatSubtasks(req.body),
+        }
+
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
         console.log(req.user.reminders)
         if (updatedReminderDict.completed === 'true') {
