@@ -23,6 +23,17 @@
 
 
 # April 2nd (second sprint)
+
+### Adrian Lee:
+### Adrian McFarlane:
+  Add read-only subtasks to single reminder view
+
+  Add Subtask editing to edit view
+  
+  Add Subtask editing to create view
+  
+  Tweak Update and Create functions to work with subtasks
+  
 ### Victor Valero:
   Make friends page
   
@@ -34,6 +45,7 @@
 
   Display friends' reminders in home page
 
+<<<<<<< HEAD
 ### Ingrid Zeng:
   Add calendar-date picker in create reminder page
 
@@ -50,5 +62,4 @@
     4. https://www.youtube.com/watch?v=eM8n55lad1c
     5. https://www.youtube.com/watch?v=EG11xNoVaHg
     6. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local
-
 
