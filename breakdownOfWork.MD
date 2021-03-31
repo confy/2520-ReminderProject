@@ -19,6 +19,17 @@
 ### Ingrid Zeng:
   Implement delete functionality
 # April 2nd (second sprint)
+
+### Adrian Lee:
+### Adrian McFarlane:
+  Add read-only subtasks to single reminder view
+
+  Add Subtask editing to edit view
+  
+  Add Subtask editing to create view
+  
+  Tweak Update and Create functions to work with subtasks
+  
 ### Victor Valero:
   Make friends page
   
@@ -29,3 +40,6 @@
   Adding friend functionality
 
   Display friends' reminders in home page
+
+
+### Ingrid Zeng:
