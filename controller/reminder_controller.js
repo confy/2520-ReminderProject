@@ -1,4 +1,5 @@
 const getUserById = require('./userController.js').getUserById
+var formatRelative = require('date-fns/formatRelative')
 
 let remindersController = {
     list: (req, res) => {
@@ -6,7 +7,7 @@ let remindersController = {
       req.user.friends.forEach( friend => {
         let user = getUserById(friend)
         friends.push({
-          email: user.email,
+          email: user.email,    
           reminders: user.reminders
         })
       })
@@ -28,19 +29,32 @@ let remindersController = {
             return reminder.id == reminderToFind;
         });
         if (searchResult != undefined) {
-            res.render("reminder/single-reminder", { reminderItem: searchResult });
+            if (searchResult.reminderTime != '') {
+                let reminderDay = new Date(searchResult.reminderTime);
+                let gap = formatRelative(reminderDay, new Date());
+                let formatGap = gap.charAt(0).toUpperCase() + gap.slice(1);
+                res.render("reminder/single-reminder", { reminderItem: searchResult, distanceToNow: formatGap });
+            } else {
+                const formatGap = '';
+                res.render("reminder/single-reminder", { reminderItem: searchResult, distanceToNow: formatGap });
+            }
         } else {
             res.render("reminder/index", { reminders: req.user.reminders });
         }
     },
 
     create: (req, res) => {
+        let date = req.body.reminderDate;
+        let time = req.body.reminderTime;
+        let reminderTime = date + 'T' + time;
         let reminder = {
             id: req.user.reminders.length + 1,
             title: req.body.title,
             description: req.body.description,
             completed: false,
+            reminderTime: reminderTime,
         };
+        console.log(reminder)
         req.user.reminders.push(reminder);
         res.redirect("/reminders");
     },
@@ -49,7 +63,6 @@ let remindersController = {
         let reminderToFind = req.params.id;
         let searchResult = req.user.reminders.find(function(reminder) {
             return reminder.id == reminderToFind;
-
         });
         res.render("reminder/edit", { reminderItem: searchResult });
     },
@@ -60,10 +73,18 @@ let remindersController = {
             return reminder.id == reminderToUpdate
         });
         delete req.user.reminders[searchIndex];
-        let updatedReminderDict = req.body;
+        let date = req.body.reminderDate;
+        let time = req.body.reminderTime;
+        let reminderTime = date + 'T' + time;
+        let updatedReminderDict = {
+            id: req.body.id,
+            title: req.body.title,
+            description: req.body.description,
+            completed: req.body.completed,
+            reminderTime: reminderTime,
+        };
         updatedReminderDict.id = reminderToUpdate;
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
-        console.log(req.user.reminders)
         if (updatedReminderDict.completed === 'true') {
             updatedReminderDict.completed = true
         } else if (updatedReminderDict.completed === 'false') {
@@ -79,6 +100,15 @@ let remindersController = {
         });
         req.user.reminders.splice(searchIndex, 1);
         res.redirect("/reminders");
+    },
+
+    deleteTime: (req, res) => {
+        let reminderToDelete = req.params.id;
+        let searchIndex = req.user.reminders.find(function(reminder) {
+            return reminder.id == reminderToDelete
+        });
+        searchIndex.reminderTime = '';
+        res.redirect(req.get('referer'));
     },
 }
 

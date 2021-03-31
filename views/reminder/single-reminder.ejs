@@ -12,10 +12,19 @@
             <span class="label label-danger">False</span>
           <% } %>
         </h4>
+        <h4 style="color:grey">REMIND ME</h4>
+          <% if ( distanceToNow != '') { %>
+            <form class="deleteReminder" method="POST">
+              <h4> <%= distanceToNow %> </h4> 
+              <button class="btn"><i class="fa fa-trash"></i> Remove </button>
+            </form>
+          <% } else { %>
+            <h4> Click edit to set a reminder time. </h4>
+          <% } %>
 
         <a class="btn btn-warning" href=<%= "/reminder/" + reminderItem.id + "/edit" %>>Edit</a>
 
-        <form class="deleteForm "method="POST" action=<%= "/reminder/delete/" + reminderItem.id %>>
+        <form class="deleteForm " method="POST" action=<%= "/reminder/delete/" + reminderItem.id %>>
           <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 

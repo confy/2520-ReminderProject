@@ -5,9 +5,19 @@
       <label for="title">Title</label>
       <input type="text" name="title" class="form-control" id="titleInput" value="<%= reminderItem.title %>">
     </div>
+    
     <div class="form-group">
       <label for="description">Description</label>
       <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"><%= reminderItem.description %></textarea>
+    </div>
+
+    <div class="form-group">
+      <lable for="reminderDate">Set Reminder Date: </lable>
+      <input type="date" class="form-control" name="reminderDate">
+    </div>
+    <div class="form-group">
+      <lable for="reminderTime">Set Reminder Time: </lable>
+      <input type="time" class="form-control" name=reminderTime>
     </div>
 
     <div class="form-group">
