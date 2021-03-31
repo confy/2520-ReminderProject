@@ -4,11 +4,8 @@ const formatSubtasks = (body) => {
     //Takes req.body and returns formatted subtasks in a list of objects
     Object.keys(body).forEach(key => {
         if (parseInt(key) == key){
-            // if the body id is an int it's a subtask
             let currSubtask = {id: key}
-            console.log(body[key]);
             if (Array.isArray(body[key])){
-                //if the subtask is an array - checkbox is marked - get the first one
                 currSubtask["title"] = body[key][0]
                 currSubtask["completed"] = true
             } else {
@@ -31,8 +28,6 @@ let remindersController = {
           reminders: user.reminders
         })
       })
-      console.log("List in reminder_controller")
-      console.log(friends)
       res.render("reminder/index", { 
         userFriends: friends,
         reminders: req.user.reminders,
@@ -61,7 +56,7 @@ let remindersController = {
             title: req.body.title,
             description: req.body.description,
             completed: false,
-            subtasks: []
+            subtasks: formatSubtasks(req.body)
         };
         req.user.reminders.push(reminder);
         res.redirect("/reminders");
@@ -81,23 +76,22 @@ let remindersController = {
         let searchIndex = req.user.reminders.findIndex(function(reminder) {
             return reminder.id == reminderToUpdate
         });
-        delete req.user.reminders[searchIndex];
-
+        
         let updatedReminderDict = {
-            id: reminderToUpdate,
+            id: parseInt(reminderToUpdate),
             title: req.body.title,
             description: req.body.description,
             completed: req.body.completed,
             subtasks: formatSubtasks(req.body),
         }
 
-        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
-        console.log(req.user.reminders)
         if (updatedReminderDict.completed === 'true') {
             updatedReminderDict.completed = true
         } else if (updatedReminderDict.completed === 'false') {
             updatedReminderDict.completed = false
         }
+        
+        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
         res.redirect("/reminders");
     },
 

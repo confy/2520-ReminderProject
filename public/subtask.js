@@ -1,13 +1,18 @@
 const subtaskList = document.querySelector("#subtaskList")
-const subtaskBoxes = document.querySelectorAll("#subtaskBox")
 const subtaskCreateBtn = document.querySelector("#createSubtask")
 const subtaskTextArea = document.querySelector('#createSubtaskTextArea')
-let nextID = subtaskBoxes.length + 100
+const subtaskNone = document.querySelector("#subtaskNone")
 
 const createSubtaskElem = () => {
     // Unticked checkboxes are not submitted via POST requests
-    // All subtasks in the edit page will have one hidden input that always submits, and one visible that overrides if checked
-    // if the req.body post value is an array, the subtask is checked
+    // All subtasks in the edit or create pages will have one hidden input that always submits, and one visible that overrides if checked
+    // if the req.body post value is an array, that means the subtask is checked
+    if (subtaskNone) {
+        subtaskNone.remove()
+    }
+
+
+    let nextID = Math.floor(Math.random() * 100000000)
     subtaskList.innerHTML += `
     <div class="form-check">
         <input class="form-check-input" type="hidden" name="${nextID}" value="${subtaskTextArea.value}">
@@ -16,7 +21,7 @@ const createSubtaskElem = () => {
     </div>
     `
     subtaskTextArea.value = ""
-    nextID += 1
+
 }
 
 subtaskCreateBtn.addEventListener("click", () =>{
