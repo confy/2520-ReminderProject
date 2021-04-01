@@ -25,6 +25,7 @@
 # April 2nd (second sprint)
 
 ### Adrian Lee:
+
 ### Adrian McFarlane:
   Add read-only subtasks to single reminder view
 
@@ -45,7 +46,6 @@
 
   Display friends' reminders in home page
 
-<<<<<<< HEAD
 ### Ingrid Zeng:
   Add calendar-date picker in create reminder page
 

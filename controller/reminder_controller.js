@@ -1,7 +1,6 @@
 const getUserById = require('./userController.js').getUserById
-<<<<<<< HEAD
 var formatRelative = require('date-fns/formatRelative')
-=======
+
 const formatSubtasks = (body) => {
     let subtasks = []
     //Takes req.body and returns formatted subtasks in a list of objects
@@ -20,7 +19,6 @@ const formatSubtasks = (body) => {
     })
     return subtasks
 }
->>>>>>> c81441f5417400fb8ba83ab2b392dcacb02144f0
 
 let remindersController = {
     list: (req, res) => {
@@ -71,11 +69,8 @@ let remindersController = {
             title: req.body.title,
             description: req.body.description,
             completed: false,
-<<<<<<< HEAD
             reminderTime: reminderTime,
-=======
-            subtasks: formatSubtasks(req.body)
->>>>>>> c81441f5417400fb8ba83ab2b392dcacb02144f0
+            subtasks: formatSubtasks(req.body),
         };
         console.log(reminder)
         req.user.reminders.push(reminder);
@@ -87,7 +82,16 @@ let remindersController = {
         let searchResult = req.user.reminders.find(function(reminder) {
             return reminder.id == reminderToFind;
         });
-        res.render("reminder/edit", { reminderItem: searchResult });
+        let searchResultTime = searchResult.reminderTime
+        if (searchResultTime != '') {
+            let date = searchResultTime.split('T')[0];
+            let time = searchResultTime.split('T')[1];
+            res.render("reminder/edit", { reminderItem: searchResult, reminderDate: date, reminderTime: time });
+        } else {
+            let date = '';
+            let time = '';
+            res.render("reminder/edit", { reminderItem: searchResult, reminderDate: date, reminderTime: time });
+        }
     },
 
     update: (req, res) => {
@@ -95,31 +99,20 @@ let remindersController = {
         let searchIndex = req.user.reminders.findIndex(function(reminder) {
             return reminder.id == reminderToUpdate
         });
-<<<<<<< HEAD
         delete req.user.reminders[searchIndex];
         let date = req.body.reminderDate;
         let time = req.body.reminderTime;
         let reminderTime = date + 'T' + time;
         let updatedReminderDict = {
-            id: req.body.id,
-            title: req.body.title,
-            description: req.body.description,
-            completed: req.body.completed,
-            reminderTime: reminderTime,
-        };
-        updatedReminderDict.id = reminderToUpdate;
-        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
-=======
-        
-        let updatedReminderDict = {
             id: parseInt(reminderToUpdate),
             title: req.body.title,
             description: req.body.description,
             completed: req.body.completed,
+            reminderTime: reminderTime,
             subtasks: formatSubtasks(req.body),
-        }
-
->>>>>>> c81441f5417400fb8ba83ab2b392dcacb02144f0
+        };
+        updatedReminderDict.id = reminderToUpdate;
+        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
         if (updatedReminderDict.completed === 'true') {
             updatedReminderDict.completed = true
         } else if (updatedReminderDict.completed === 'false') {

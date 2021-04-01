@@ -31,16 +31,17 @@
 
     <div class="form-group">
       <textarea class="form-control" id="createSubtaskTextArea" placeholder="Add a new subtask"></textarea>
+      <p></p>
       <button type="button" id="createSubtask" class="btn btn-primary">Create Subtask</button>
     </div>
 
     <div class="form-group">
       <lable for="reminderDate">Set Reminder Date: </lable>
-      <input type="date" class="form-control" name="reminderDate">
+      <input type="date" value="<%=reminderDate%>" class="form-control" name="reminderDate">
     </div>
     <div class="form-group">
       <lable for="reminderTime">Set Reminder Time: </lable>
-      <input type="time" class="form-control" name=reminderTime>
+      <input type="time" value="<%=reminderTime%>" class="form-control" name=reminderTime >
     </div>
 
     <div class="form-group">

@@ -12,22 +12,21 @@
             <span class="label label-danger">False</span>
           <% } %>
         </h4>
-<<<<<<< HEAD
         <h4 style="color:grey">REMIND ME</h4>
           <% if ( distanceToNow != '') { %>
             <form class="deleteReminder" method="POST">
-              <h4> <%= distanceToNow %> </h4> 
-              <button class="btn"><i class="fa fa-trash"></i> Remove </button>
+              <div style="display:inline">
+                <%= distanceToNow %> 
+                <button class="btn"><i class="fa fa-trash"></i></button>
+              </div>
             </form>
           <% } else { %>
-            <h4> Click edit to set a reminder time. </h4>
+            <div> Click edit to set a reminder time. </div>
           <% } %>
 
-=======
-        <h6>Subtasks:</h6>
-        
+        <h4 style="color:grey">SUBTASKS</h4>
         <% if (reminderItem.subtasks.length == 0) { %>
-          <label>None</label>
+          <label>No subtask at the moment...</label>
         <% } else {%>
         <% reminderItem.subtasks.forEach((subtask) => { %>
           <div class="form-check">
@@ -41,9 +40,8 @@
         </label>
       </div>
         <% }) }%>
->>>>>>> c81441f5417400fb8ba83ab2b392dcacb02144f0
+        <p></p>
         <a class="btn btn-warning" href=<%= "/reminder/" + reminderItem.id + "/edit" %>>Edit</a>
-
         <form class="deleteForm " method="POST" action=<%= "/reminder/delete/" + reminderItem.id %>>
           <button type="submit" class="btn btn-danger">Delete</button>
         </form>
