@@ -19,6 +19,15 @@ const formatSubtasks = (body) => {
     })
     return subtasks
 }
+const parseTags = (body) => {
+    let newTags = []
+    Object.keys(body).forEach(key => {
+        if (key.startsWith('tag-')) {
+            newTags.push(body[key])
+        }
+    })
+    return newTags
+}
 
 let remindersController = {
     list: (req, res) => {
@@ -110,6 +119,7 @@ let remindersController = {
             completed: req.body.completed,
             reminderTime: reminderTime,
             subtasks: formatSubtasks(req.body),
+            tags: parseTags(req.body)
         };
         updatedReminderDict.id = reminderToUpdate;
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
@@ -118,6 +128,7 @@ let remindersController = {
         } else if (updatedReminderDict.completed === 'false') {
             updatedReminderDict.completed = false
         }
+        console.log(req.body)
         
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
         res.redirect("/reminders");

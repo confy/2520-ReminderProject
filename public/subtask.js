@@ -27,3 +27,23 @@ const createSubtaskElem = () => {
 subtaskCreateBtn.addEventListener("click", () =>{
     createSubtaskElem()
 })
+
+const tagTextArea = document.querySelector('#createTagTextArea')
+const tagCreateBtn = document.querySelector('#createTag')
+const tagList = document.querySelector('#tagList')
+
+const createTagElem = () => {
+    let newTag = tagTextArea.value
+
+    tagList.innerHTML += `
+    <span class="d-inline badge rounded-pill bg-warning text-dark m-1">
+    ${newTag}
+    <input type="hidden" name="tag-${newTag}" value="${newTag}">
+    </span>`
+    tagTextArea.value =''
+
+}
+
+tagCreateBtn.addEventListener("click", () =>{
+    createTagElem()
+})
