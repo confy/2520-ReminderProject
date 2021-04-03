@@ -108,7 +108,6 @@ let remindersController = {
         let searchIndex = req.user.reminders.findIndex(function(reminder) {
             return reminder.id == reminderToUpdate
         });
-        delete req.user.reminders[searchIndex];
         let date = req.body.reminderDate;
         let time = req.body.reminderTime;
         let reminderTime = date + 'T' + time;
@@ -116,11 +115,13 @@ let remindersController = {
             id: parseInt(reminderToUpdate),
             title: req.body.title,
             description: req.body.description,
-            completed: req.body.completed,
+            //json parse evalutes the string true, false to bool
+            completed: JSON.parse(req.body.completed),
             reminderTime: reminderTime,
             subtasks: formatSubtasks(req.body),
             tags: parseTags(req.body)
         };
+<<<<<<< HEAD
         updatedReminderDict.id = reminderToUpdate;
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
         if (updatedReminderDict.completed === 'true') {
@@ -131,6 +132,9 @@ let remindersController = {
         console.log(req.body)
         
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
+=======
+        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)       
+>>>>>>> 4036af8e46fc0bbf5485c657149240cf3b4a47ef
         res.redirect("/reminders");
     },
 
