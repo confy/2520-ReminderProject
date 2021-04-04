@@ -69,17 +69,9 @@
   Add Delete button in the task page to delete a reminder time
 
   self-learning w/ youtube videos:
-  
     1. https://www.youtube.com/watch?v=StkFajPnd7w&t=4s
-    2. 
-    3. https://www.youtube.com/watch?v=DAlvbZzrppQ&t=1211s
-    4. 
-    5. https://www.youtube.com/watch?v=_CFurGCKJQk
-    6. 
-    7. https://www.youtube.com/watch?v=eM8n55lad1c
-    8. 
-    9. https://www.youtube.com/watch?v=EG11xNoVaHg
-    10. 
-    11. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local
-    12. 
-
+    2. https://www.youtube.com/watch?v=DAlvbZzrppQ&t=1211s
+    3. https://www.youtube.com/watch?v=_CFurGCKJQk
+    4. https://www.youtube.com/watch?v=eM8n55lad1c
+    5. https://www.youtube.com/watch?v=EG11xNoVaHg
+    6. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local 
