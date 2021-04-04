@@ -81,6 +81,7 @@ let remindersController = {
                 completed: false,
                 reminderTime: reminderTime,
                 subtasks: formatSubtasks(req.body),
+                tags: parseTags(req.body)
             };
             req.user.reminders.push(reminder);
             res.redirect("/reminders");
@@ -92,6 +93,7 @@ let remindersController = {
                 completed: false,
                 reminderTime: '',
                 subtasks: formatSubtasks(req.body),
+                tags: parseTags(req.body),
             };
             req.user.reminders.push(reminder);
             res.redirect("/reminders");
