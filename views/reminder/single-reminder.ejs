@@ -12,6 +12,17 @@
             <span class="label label-danger">False</span>
           <% } %>
         </h4>
+        <% if (reminderItem.tags.length == 0) { %>
+          <label>No tags at the moment</label>
+        <% } else {%>
+          <% reminderItem.tags.forEach((tag) => { %>
+            <div class = "d-inline m-1 tags">
+              <span class="d-inline badge rounded-pill bg-warning text-dark ">
+                <%= tag %>
+              </span>
+            </div>
+            <%})%>
+          <%}%>
         <h4 style="color:grey">REMIND ME</h4>
           <% if ( distanceToNow != '') { %>
             <form class="deleteReminder" method="POST">

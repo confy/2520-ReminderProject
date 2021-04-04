@@ -38,7 +38,7 @@ const createTagElem = () => {
     tagList.innerHTML += `
     <span class="d-inline badge rounded-pill bg-warning text-dark m-1">
     ${newTag}
-    <input type="hidden" name="tag-${newTag}" value="${newTag}">
+    <input type="hidden" name="tag-${newTag}" value="tag-${newTag}">
     </span>`
     tagTextArea.value =''
 
