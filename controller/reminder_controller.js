@@ -121,20 +121,7 @@ let remindersController = {
             subtasks: formatSubtasks(req.body),
             tags: parseTags(req.body)
         };
-<<<<<<< HEAD
-        updatedReminderDict.id = reminderToUpdate;
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
-        if (updatedReminderDict.completed === 'true') {
-            updatedReminderDict.completed = true
-        } else if (updatedReminderDict.completed === 'false') {
-            updatedReminderDict.completed = false
-        }
-        console.log(req.body)
-        
-        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
-=======
-        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)       
->>>>>>> 4036af8e46fc0bbf5485c657149240cf3b4a47ef
         res.redirect("/reminders");
     },
 
