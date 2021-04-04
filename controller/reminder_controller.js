@@ -70,20 +70,32 @@ let remindersController = {
     },
 
     create: (req, res) => {
-        let date = req.body.reminderDate;
-        let time = req.body.reminderTime;
-        let reminderTime = date + 'T' + time;
-        let reminder = {
-            id: req.user.reminders.length + 1,
-            title: req.body.title,
-            description: req.body.description,
-            completed: false,
-            reminderTime: reminderTime,
-            subtasks: formatSubtasks(req.body),
-        };
-        console.log(reminder)
-        req.user.reminders.push(reminder);
-        res.redirect("/reminders");
+        if (req.body.reminderDate != '' && req.body.reminderTime != '') {
+            let date = req.body.reminderDate;
+            let time = req.body.reminderTime;
+            let reminderTime = date + 'T' + time;
+            let reminder = {
+                id: req.user.reminders.length + 1,
+                title: req.body.title,
+                description: req.body.description,
+                completed: false,
+                reminderTime: reminderTime,
+                subtasks: formatSubtasks(req.body),
+            };
+            req.user.reminders.push(reminder);
+            res.redirect("/reminders");
+        } else {
+            let reminder = {
+                id: req.user.reminders.length + 1,
+                title: req.body.title,
+                description: req.body.description,
+                completed: false,
+                reminderTime: '',
+                subtasks: formatSubtasks(req.body),
+            };
+            req.user.reminders.push(reminder);
+            res.redirect("/reminders");
+        }
     },
 
     edit: (req, res) => {
@@ -121,12 +133,7 @@ let remindersController = {
             subtasks: formatSubtasks(req.body),
             tags: parseTags(req.body)
         };
-<<<<<<< HEAD
-        console.log(req.body)
-        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)       
-=======
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
->>>>>>> b137f3ad17a5572f6c2e0872bafcbd99d38a7767
         res.redirect("/reminders");
     },
 
