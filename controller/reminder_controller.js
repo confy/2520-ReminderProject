@@ -121,8 +121,12 @@ let remindersController = {
             subtasks: formatSubtasks(req.body),
             tags: parseTags(req.body)
         };
+<<<<<<< HEAD
         console.log(req.body)
         req.user.reminders.splice(searchIndex, 1, updatedReminderDict)       
+=======
+        req.user.reminders.splice(searchIndex, 1, updatedReminderDict)
+>>>>>>> b137f3ad17a5572f6c2e0872bafcbd99d38a7767
         res.redirect("/reminders");
     },
 
