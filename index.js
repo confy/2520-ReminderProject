@@ -4,6 +4,8 @@ const session = require("express-session");
 const ejsLayouts = require("express-ejs-layouts");
 const app = express();
 
+require('dotenv').config()
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(ejsLayouts);

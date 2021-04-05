@@ -5,6 +5,22 @@ const database = require("../database")
 
 const router = express.Router();
 
+//Unsplash setup
+const fetch  = require("node-fetch")
+const { createApi } =require("unsplash-js")
+
+global.fetch = fetch;
+const unsplash = createApi({
+  accessKey: process.env.UNSPLASH_ACCESS,
+  fetch: fetch
+})
+
+const randomAnimals = ["dog"]
+
+const randomAnimal = () => {
+  return randomAnimals[Math.floor(Math.random() * randomAnimals.length)];
+}
+
 // Login routes
 router.get("/login", forwardAuthenticated, (req, res) => res.render("auth/login"));
 router.post(
@@ -26,16 +42,29 @@ router.post(
     if (database.find(user => user.email === email)) {
       res.render("auth/register", { exists: true, email: undefined })
     } else {
-      const password = req.body.password
-      const id = Math.floor(Math.random() * 13717)
-      database.push({
-        id: id, 
-        email: email, 
-        password: password, 
-        reminders: [], 
-        friends: []
+      unsplash.photos.getRandom({
+        query: randomAnimal()
+      }).then(result => {
+        switch (result.type) {
+          case 'error':
+            console.log('unsplash error occurred: ', result.errors[0]);
+          case 'success':
+            const photo = result.response;
+            console.log(photo.urls.small);
+            const password = req.body.password
+            const id = Math.floor(Math.random() * 13717)
+            database.push({
+              id: id, 
+              email: email, 
+              password: password, 
+              reminders: [], 
+              friends: [],
+              profilePic: photo.urls.small
+            })
+            res.redirect("/auth/login")
+        }
       })
-      res.redirect("/auth/login")
+      
     }
   }
 )
