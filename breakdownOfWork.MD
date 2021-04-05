@@ -75,3 +75,18 @@
     4. https://www.youtube.com/watch?v=eM8n55lad1c
     5. https://www.youtube.com/watch?v=EG11xNoVaHg
     6. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local 
+
+# April 9th (Third Sprint)
+
+### Adrian Lee:
+
+### Adrian McFarlane:
+
+### Victor Valero:
+  Make routes more consise
+  
+  Modify public index page for registering
+  
+  Implement registering functionality
+  
+### Ingrid Zeng:
