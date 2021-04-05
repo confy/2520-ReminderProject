@@ -35,7 +35,7 @@ let Database = [{
     email: "rillix.kuu@gmail.com",
     password: "12345678",
     reminders: [
-      { id: 2, title: "fsdjgiojho2", description: "67893562", completed: false, reminderTime: "2021-04-19T18:30", subtasks: [] }
+      { id: 2, title: "fsdjgiojho2", description: "67893562", completed: false, reminderTime: "2021-04-19T18:30", subtasks: [], tags:[] }
     ],
     friends: [],
 },

@@ -33,7 +33,7 @@ const authRoute = require("./routes/authRoute");
 const indexRoute = require("./routes/indexRoute");
 // Routes to login an authenticated user pages
 app.use("/", indexRoute)
-app.use("/login", authRoute)
+app.use("/auth", authRoute)
 
 app.listen(3001, function() {
     console.log(
