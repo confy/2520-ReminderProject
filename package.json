@@ -17,14 +17,17 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "date-fns": "^2.19.0",
+    "dotenv": "^8.2.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-ejs-layouts": "^2.2.0",
     "express-session": "^1.17.1",
     "method-override": "^2.3.7",
     "mongoose": "^5.12.3",
+    "node-fetch": "^2.6.1",
     "nodemon": "^1.19.4",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "unsplash-js": "^7.0.10"
   }
 }
