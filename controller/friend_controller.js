@@ -25,7 +25,7 @@ let friendsController = {
         })
       }
     })
-    res.render("friend/friends", { friends: friends, nonFriends: nonFriends })
+    res.render("friend/friends", { friends: friends, nonFriends: nonFriends, profilePic: req.user.profilePic})
   },
 
   add: (req, res) => {

@@ -134,3 +134,22 @@ footer.footer {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+/* taken from stackoverflow
+  https://stackoverflow.com/questions/42680085/how-do-i-make-images-display-as-a-square */
+
+.image-wrapper {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+}
+.image-wrapper img {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

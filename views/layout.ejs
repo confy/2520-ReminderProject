@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <% include ./partials/navbar %>
+    <% if (typeof(profilePic) != 'undefined') { %>
+      <%- include('partials/navbar', {profilePic: profilePic}) %>
+    <% } else { %>
+      <%- include('partials/navbar')%>
+    <% } %>
     <%- body %>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   </body>

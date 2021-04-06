@@ -41,12 +41,13 @@ let remindersController = {
       })
       res.render("reminder/index", { 
         userFriends: friends,
+        profilePic: req.user.profilePic,
         reminders: req.user.reminders,
       });
     },
 
     new: (req, res) => {
-        res.render("reminder/create");
+        res.render("reminder/create", {profilePic: req.user.profilePic});
     },
 
     listOne: (req, res) => {
@@ -59,13 +60,16 @@ let remindersController = {
                 let reminderDay = new Date(searchResult.reminderTime);
                 let gap = formatRelative(reminderDay, new Date());
                 let formatGap = gap.charAt(0).toUpperCase() + gap.slice(1);
-                res.render("reminder/single-reminder", { reminderItem: searchResult, distanceToNow: formatGap });
+                res.render("reminder/single-reminder", { reminderItem: searchResult, distanceToNow: formatGap, profilePic: req.user.profilePic});
             } else {
                 const formatGap = '';
-                res.render("reminder/single-reminder", { reminderItem: searchResult, distanceToNow: formatGap });
+                res.render("reminder/single-reminder", { reminderItem: searchResult, distanceToNow: formatGap, profilePic: req.user.profilePic});
             }
         } else {
-            res.render("reminder/index", { reminders: req.user.reminders });
+            res.render("reminder/index", { 
+                reminders: req.user.reminders,
+                profilePic: req.user.profilePic,
+            });
         }
     },
 
@@ -109,11 +113,21 @@ let remindersController = {
         if (searchResultTime != '') {
             let date = searchResultTime.split('T')[0];
             let time = searchResultTime.split('T')[1];
-            res.render("reminder/edit", { reminderItem: searchResult, reminderDate: date, reminderTime: time });
+            res.render("reminder/edit", { 
+                reminderItem: searchResult,
+                reminderDate: date,
+                reminderTime: time,
+                profilePic: req.user.profilePic,
+                });
         } else {
             let date = '';
             let time = '';
-            res.render("reminder/edit", { reminderItem: searchResult, reminderDate: date, reminderTime: time });
+            res.render("reminder/edit", { 
+                reminderItem: searchResult, 
+                reminderDate: date, 
+                reminderTime: time,
+                profilePic: req.user.profilePic,
+            });
         }
     },
 
