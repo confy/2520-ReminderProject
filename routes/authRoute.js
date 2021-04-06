@@ -15,7 +15,7 @@ const unsplash = createApi({
   fetch: fetch
 })
 
-const randomAnimals = ["dog"]
+const randomAnimals = ["dog", "cat", "wolf", "bird", "whale"]
 
 const randomAnimal = () => {
   return randomAnimals[Math.floor(Math.random() * randomAnimals.length)];
@@ -43,14 +43,15 @@ router.post(
       res.render("auth/register", { exists: true, email: undefined })
     } else {
       unsplash.photos.getRandom({
-        query: randomAnimal()
+        query: randomAnimal(),
+        featured: true
       }).then(result => {
         switch (result.type) {
           case 'error':
             console.log('unsplash error occurred: ', result.errors[0]);
           case 'success':
             const photo = result.response;
-            console.log(photo.urls.small);
+            photoSmall = photo.urls.full + '&h=80'
             const password = req.body.password
             const id = Math.floor(Math.random() * 13717)
             database.push({
@@ -59,7 +60,7 @@ router.post(
               password: password, 
               reminders: [], 
               friends: [],
-              profilePic: photo.urls.small
+              profilePic: photoSmall
             })
             res.redirect("/auth/login")
         }
