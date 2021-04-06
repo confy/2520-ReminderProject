@@ -15,7 +15,7 @@ const unsplash = createApi({
   fetch: fetch
 })
 
-const randomAnimals = ["dog", "cat", "wolf", "bird", "whale"]
+const randomAnimals = ["dog", "cat", "wolf", "bird", "fennec"]
 
 const randomAnimal = () => {
   return randomAnimals[Math.floor(Math.random() * randomAnimals.length)];
