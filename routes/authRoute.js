@@ -51,7 +51,7 @@ router.post(
             console.log('unsplash error occurred: ', result.errors[0]);
           case 'success':
             const photo = result.response;
-            photoSmall = photo.urls.full + '&h=80'
+            photoSmall = photo.urls.full + '&h=120'
             const password = req.body.password
             const id = Math.floor(Math.random() * 13717)
             database.push({
