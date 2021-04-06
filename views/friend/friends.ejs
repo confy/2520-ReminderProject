@@ -10,7 +10,11 @@
       </li>
     <% } %>
     <% friends.forEach(function (friend) { %>
+      
       <li class="list-group-item">
+        <div class="image-wrapper">
+          <img src="<%= friend.profilePic  %> " alt="friend profile pic">
+        </div>
         <strong><%= friend.email %> | </strong>
         <%= friend.amount %> reminders
       </li>
@@ -20,7 +24,11 @@
   <h4>People you may know</h4>
   <ul class="list-group">
     <% nonFriends.forEach(function (user) { %>
-      <li class="list-group-item"><strong><%= user.email %> | </strong>
+      <li class="list-group-item">
+        <div class="image-wrapper">
+          <img src="<%= user.profilePic  %> " alt="friend profile pic">
+        </div>
+        <strong><%= user.email %> | </strong>
         <%= user.amount %> reminders
         <form action="/friends/add" method="POST">
           <input type="hidden" name="idFriend" value="<%= user.id %>">

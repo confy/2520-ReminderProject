@@ -9,7 +9,8 @@ let friendsController = {
       let user = getUserById(friend)
       friends.push({
         email: user.email,
-        amount: user.reminders.length
+        amount: user.reminders.length,
+        profilePic: user.profilePic
       })
     })
 
@@ -21,7 +22,8 @@ let friendsController = {
         nonFriends.push({
           email: user.email,
           amount: user.reminders.length,
-          id: user.id
+          id: user.id,
+          profilePic: user.profilePic
         })
       }
     })
