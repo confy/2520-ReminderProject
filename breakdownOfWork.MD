@@ -99,3 +99,4 @@
   Round corners and include border on profile picture images
   
 ### Ingrid Zeng:
+  Implement logout button
