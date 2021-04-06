@@ -1,18 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/reminders">Reminder List</a>
-  <% if (typeof(profilePic) != 'undefined') { %>
-    <div class="image-wrapper mr-auto">
-      <img src="<%= profilePic %>" alt="profile pic">
-    </div>
-  <% } %> 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="navbar-nav mr-auto">
       <a class="nav-item nav-link" href="/reminders">List All</a>
       <a class="nav-item nav-link" href="/reminder/new">Create</a>
-      <a class="nav-item nav-link" href="/friends">Friends</a>
     </div>
+    <div class="navbar-nav mr-1">
+        <a class="nav-item nav-link" href="/friends">Friends</a>
+    </div>
+    <% if (typeof(profilePic) != 'undefined') { %>
+      <div class="image-wrapper navbar-nav mr-2">
+        <img src="<%= profilePic %>" alt="profile pic" class="nav-item border rounded">
+      </div>
+    <% } %> 
   </div>
 </nav>

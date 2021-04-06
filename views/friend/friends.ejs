@@ -6,14 +6,14 @@
     <% if (friends.length === 0) { %>
       <li class="list-group-item">
           <strong>You have no friends :(</strong>
-          <img src="./ratdog.png" alt="ratdog">
+          <img src="./ratdog.png" alt="ratdog" class="border rounded">
       </li>
     <% } %>
     <% friends.forEach(function (friend) { %>
       
       <li class="list-group-item">
         <div class="image-wrapper">
-          <img src="<%= friend.profilePic  %> " alt="friend profile pic">
+          <img src="<%= friend.profilePic  %> " alt="friend profile pic" class="border rounded">
         </div>
         <strong><%= friend.email %> | </strong>
         <%= friend.amount %> reminders
@@ -26,7 +26,7 @@
     <% nonFriends.forEach(function (user) { %>
       <li class="list-group-item">
         <div class="image-wrapper">
-          <img src="<%= user.profilePic  %> " alt="friend profile pic">
+          <img src="<%= user.profilePic  %> " alt="friend profile pic" class="border rounded">
         </div>
         <strong><%= user.email %> | </strong>
         <%= user.amount %> reminders
