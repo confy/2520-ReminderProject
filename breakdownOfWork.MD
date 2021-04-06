@@ -94,4 +94,8 @@
   
   Implement registering functionality
   
+  Align some items of navbar to the left (Friends and Profile picture)
+  
+  Round corners and include border on profile picture images
+  
 ### Ingrid Zeng:
