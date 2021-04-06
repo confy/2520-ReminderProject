@@ -44,13 +44,6 @@
   
   Tweak Update and Create functions to work with subtasks
 
-  Refactor update function
-
-  Add Unsplash API to get random pic on registering
-
-  Add display of PFP to header and friends pages
-
-
 ### Victor Valero:
   Make friends page
   
@@ -88,6 +81,11 @@
 ### Adrian Lee:
 
 ### Adrian McFarlane:
+  Refactor update function
+
+  Add Unsplash API to get random pic on registering
+
+  Add display of PFP to header and friends pages
 
 ### Victor Valero:
   Make routes more consise
