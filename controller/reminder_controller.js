@@ -1,5 +1,6 @@
 const getUserById = require('./userController.js').getUserById
-var formatRelative = require('date-fns/formatRelative')
+const formatRelative = require('date-fns/formatRelative')
+const dateFNS = require('date-fns')
 
 const formatSubtasks = (body) => {
     let subtasks = []
@@ -79,7 +80,7 @@ let remindersController = {
             let time = req.body.reminderTime;
             let reminderTime = date + 'T' + time;
             let reminder = {
-                id: req.user.reminders.length + 1,
+                id: req.user.reminders.length + new Date().getDate(),
                 title: req.body.title,
                 description: req.body.description,
                 completed: false,
@@ -91,7 +92,7 @@ let remindersController = {
             res.redirect("/reminders");
         } else {
             let reminder = {
-                id: req.user.reminders.length + 1,
+                id: req.user.reminders.length + new Date().getTime(),
                 title: req.body.title,
                 description: req.body.description,
                 completed: false,
@@ -138,7 +139,11 @@ let remindersController = {
         });
         let date = req.body.reminderDate;
         let time = req.body.reminderTime;
-        let reminderTime = date + 'T' + time;
+        if (date != '' && time != '') {
+          var reminderTime = date + 'T' + time;
+        } else {
+          var reminderTime = '';
+        }
         let updatedReminderDict = {
             id: parseInt(reminderToUpdate),
             title: req.body.title,
