@@ -97,6 +97,8 @@
   Align some items of navbar to the left (Friends and Profile picture)
   
   Round corners and include border on profile picture images
+
+  Modified main page's layout to be easier to read
   
 ### Ingrid Zeng:
   Add logout route/button

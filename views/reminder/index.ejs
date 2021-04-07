@@ -4,15 +4,42 @@
 <ul class="list-group">
   <% reminders.forEach(function (reminderItem) { %>
     <li class="list-group-item">
-      <strong><%= reminderItem.title %>: </strong>
-      <%= reminderItem.description %>
-      || Completed:
-      <% if (reminderItem.completed == true) { %>
-        <span class="badge badge-success">True</span>
-      <% } else if (reminderItem.completed == false) { %>
-        <span class="badge badge-danger">False</span>
+      <div>
+        <a href=<%= "/reminder/" + reminderItem.id %>><strong><%= reminderItem.title %></strong></a>
+      <span class="pull-right">Completed: 
+          <% if (reminderItem.completed == true) { %>
+            <span class="badge badge-success">True</span>
+          <% } else if (reminderItem.completed == false) { %>
+            <span class="badge badge-danger">False</span>
+          <% } %>
+      </span>
+
+      <% reminderItem.tags.forEach((tag) => { %>
+        <div class = "d-inline m-1 tags">
+          <span class="d-inline badge rounded-pill bg-warning text-dark ">
+            <%= tag %>
+          </span>
+        </div>
+      <%})%>
+
+      <p><%= reminderItem.description %></p>
+      </div>
+
+      <% if (reminderItem.subtasks.length > 0) { %>
+        <span class="d-block"><strong>Subtasks</strong></span>
+        <% reminderItem.subtasks.forEach((subtask) => { %>
+            <div class="form-check d-inline">
+                <% if (subtask.completed == true) { %>
+                <input class="form-check-input" type="checkbox" checked="checked" id="flexCheckDefault" disabled>
+                <% } else { %>
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" disabled>
+                <% } %>
+                <label class="form-check-label mr-2" for="flexCheckDefault">
+                <%= subtask.title %>
+                </label>
+            </div>
+        <% }) %>
       <% } %>
-      <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
     </li>
   <% }) %>
 </ul>
@@ -24,13 +51,41 @@
           <ul>
           <% friend.reminders.forEach( function(reminder) { %> 
               <li class="list-group-item">
-                  <strong><%= reminder.title %>: </strong>
-                  <%= reminder.description %>
-                  || Completed:
-                  <% if (reminder.completed == true) { %>
-                      <span class="badge badge-success">True</span>
-                  <% } else if (reminder.completed == false) { %>
-                      <span class="badge badge-danger">False</span>
+                  <div>
+                    <strong><%= reminder.title %></strong>
+                    <span class="pull-right">Completed: 
+                        <% if (reminder.completed == true) { %>
+                          <span class="badge badge-success">True</span>
+                        <% } else if (reminder.completed == false) { %>
+                          <span class="badge badge-danger">False</span>
+                        <% } %>
+                    </span>
+
+                    <% reminder.tags.forEach((tag) => { %>
+                        <div class = "d-inline m-1 tags">
+                          <span class="d-inline badge rounded-pill bg-warning text-dark ">
+                            <%= tag %>
+                          </span>
+                        </div>
+                      <%})%>
+
+                    <p><%= reminder.description %></p>
+                  </div>
+
+                  <% if (reminder.subtasks.length > 0) { %>
+                    <span class="d-block"><strong>Subtasks</strong></span>
+                    <% reminder.subtasks.forEach((subtask) => { %>
+                        <div class="form-check d-inline">
+                            <% if (subtask.completed == true) { %>
+                            <input class="form-check-input" type="checkbox" checked="checked" id="flexCheckDefault" disabled>
+                            <% } else { %>
+                            <input class="form-check-input" type="checkbox" id="flexCheckDefault" disabled>
+                            <% } %>
+                            <label class="form-check-label mr-2" for="flexCheckDefault">
+                            <%= subtask.title %>
+                            </label>
+                        </div>
+                    <% }) %>
                   <% } %>
               </li>
           <% }) %>
