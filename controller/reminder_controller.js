@@ -75,34 +75,23 @@ let remindersController = {
     },
 
     create: (req, res) => {
+        let reminderTime = ''
         if (req.body.reminderDate != '' && req.body.reminderTime != '') {
             let date = req.body.reminderDate;
             let time = req.body.reminderTime;
-            let reminderTime = date + 'T' + time;
-            let reminder = {
-                id: req.user.reminders.length + new Date().getDate(),
-                title: req.body.title,
-                description: req.body.description,
-                completed: false,
-                reminderTime: reminderTime,
-                subtasks: formatSubtasks(req.body),
-                tags: parseTags(req.body)
-            };
-            req.user.reminders.push(reminder);
-            res.redirect("/reminders");
-        } else {
-            let reminder = {
-                id: req.user.reminders.length + new Date().getTime(),
-                title: req.body.title,
-                description: req.body.description,
-                completed: false,
-                reminderTime: '',
-                subtasks: formatSubtasks(req.body),
-                tags: parseTags(req.body),
-            };
-            req.user.reminders.push(reminder);
-            res.redirect("/reminders");
+            reminderTime = date + 'T' + time;
         }
+        let reminder = {
+            id: req.user.reminders.length + new Date().getTime(),
+            title: req.body.title,
+            description: req.body.description,
+            completed: false,
+            reminderTime: reminderTime,
+            subtasks: formatSubtasks(req.body),
+            tags: parseTags(req.body)
+        };
+        req.user.reminders.push(reminder);
+            res.redirect("/reminders");
     },
 
     edit: (req, res) => {

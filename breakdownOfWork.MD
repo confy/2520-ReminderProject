@@ -91,6 +91,8 @@
 
   Refactor update function
 
+  Refactor create function
+
   Add Unsplash API to get random pic on registering
 
   Add display of PFP to header and friends pages
