@@ -3,15 +3,8 @@
 
     <ul class="list-group">
       <li class="list-group-item">
-        <h3><strong><%= reminderItem.title %>: </strong></h3>
-        <h4><%= reminderItem.description %></h4>
-        <h4>Completed:
-          <% if (reminderItem.completed == true) { %>
-            <span class="label label-success">True</span>
-          <% } else if (reminderItem.completed == false) { %>
-            <span class="label label-danger">False</span>
-          <% } %>
-        </h4>
+        <h1><%= reminderItem.title %></h3>
+
         <% if (reminderItem.tags.length == 0) { %>
           <label>No tags at the moment</label>
         <% } else {%>
@@ -23,33 +16,48 @@
             </div>
             <%})%>
           <%}%>
-        <h4 style="color:grey">REMIND ME</h4>
+
+        <h3> &#9997 notes: <%= reminderItem.description %></h4>
+        <h4>STATUS</h4>
+        <div id="box">
+          <% if (reminderItem.completed == true) { %>
+            Completed &#128515
+          <% } else if (reminderItem.completed == false) { %>
+            Pending &#128528
+          <% } %>
+        </div>
+
+        <h4>REMIND ME</h4>
+        <div id="box">
           <% if ( distanceToNow != '') { %>
             <form class="deleteReminder" method="POST">
               <div style="display:inline">
                 <%= distanceToNow %> 
-                <button class="btn"><i class="fa fa-trash"></i></button>
+                <button class="btn-time"><i class="fa fa-trash"></i></button>
               </div>
             </form>
           <% } else { %>
-            <div> Click edit to set a reminder time. </div>
+            Click edit to set a reminder time.
           <% } %>
+        </div>
 
-        <h4 style="color:grey">SUBTASKS</h4>
+        <h4>SUBTASKS</h4>
         <% if (reminderItem.subtasks.length == 0) { %>
-          <label>No subtask at the moment...</label>
+          <div id="box">
+            <label>No subtask at the moment...</label>
+          </div>
         <% } else {%>
         <% reminderItem.subtasks.forEach((subtask) => { %>
-          <div class="form-check">
+          <div class="form-check-single">
           <% if (subtask.completed == true) { %>
-            <input class="form-check-input" type="checkbox" checked="checked" id="flexCheckDefault" disabled>
+            <input class="form-checkbox" type="checkbox" checked="checked" id="flexCheckDefault" disabled>
           <% } else { %>
-            <input class="form-check-input" type="checkbox" id="flexCheckDefault" disabled>
+            <input class="form-checkbox" type="checkbox" id="flexCheckDefault" disabled>
           <% } %>
         <label class="form-check-label" for="flexCheckDefault">
           <%= subtask.title %>
         </label>
-      </div>
+        </div>
         <% }) }%>
         <p></p>
         <a class="btn btn-warning" href=<%= "/reminder/" + reminderItem.id + "/edit" %>>Edit</a>

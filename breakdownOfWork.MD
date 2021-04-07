@@ -99,3 +99,6 @@
   Round corners and include border on profile picture images
   
 ### Ingrid Zeng:
+  Add logout route/button
+  
+  Add css to single reminder
