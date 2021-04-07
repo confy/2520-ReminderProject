@@ -31,6 +31,17 @@ h4 #status {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+#header {
+  background-color: #fff;
+  margin: 20px 0px -5px 0px;
+}
+
+.page-header {
+  background-color: transparent;
+  font-size: large;
+  padding: 5px;
+}
+
 header.masthead {
   position: relative;
   background-color: #fff;
