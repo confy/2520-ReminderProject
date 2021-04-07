@@ -11,8 +11,8 @@ const createSubtaskElem = () => {
         subtaskNone.remove()
     }
 
-
-    let nextID = Math.floor(Math.random() * 100000000)
+    currDate = new Date()
+    let nextID = currDate.getTime()
     subtaskList.innerHTML += `
     <div class="form-check">
         <input class="form-check-input" type="hidden" name="${nextID}" value="${subtaskTextArea.value}">

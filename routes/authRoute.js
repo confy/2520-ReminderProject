@@ -53,7 +53,8 @@ router.post(
             const photo = result.response;
             photoSmall = photo.urls.full + '&h=120'
             const password = req.body.password
-            const id = Math.floor(Math.random() * 13717)
+            currDate = new Date()
+            const id = currDate.getTime()
             database.push({
               id: id, 
               email: email, 
