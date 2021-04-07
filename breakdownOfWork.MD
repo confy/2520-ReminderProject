@@ -79,8 +79,16 @@
 # April 9th (Third Sprint)
 
 ### Adrian Lee:
+  Fix time issue
+
+  Change reminder ID creation
+
 
 ### Adrian McFarlane:
+  Fix time issue
+
+  Change reminder ID creation
+
   Refactor update function
 
   Add Unsplash API to get random pic on registering
@@ -88,6 +96,10 @@
   Add display of PFP to header and friends pages
 
 ### Victor Valero:
+  Fix time issue
+
+  Change reminder ID creation
+
   Make routes more consise
   
   Modify public index page for registering
@@ -101,6 +113,10 @@
   Modified main page's layout to be easier to read
   
 ### Ingrid Zeng:
+  Fix time issue
+
+  Change reminder ID creation
+
   Add logout route/button
   
   Add css to single reminder
