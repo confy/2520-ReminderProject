@@ -12,7 +12,10 @@
           <% } else if (reminderItem.completed == false) { %>
             <span class="badge badge-danger">False</span>
           <% } %>
-      </span>
+          <% if (reminderItem.reminderTime != "") { %>
+          <p class="time-main">Complete by: <%= reminderItem.reminderTime.split('T')[0] %></p>
+          <% } %>
+        </span>
 
       <% reminderItem.tags.forEach((tag) => { %>
         <div class = "d-inline m-1 tags">
@@ -22,7 +25,7 @@
         </div>
       <%})%>
 
-      <p><%= reminderItem.description %></p>
+      <p class='main-p'><%= reminderItem.description %></p>
       </div>
 
       <% if (reminderItem.subtasks.length > 0) { %>
@@ -69,7 +72,7 @@
                         </div>
                       <%})%>
 
-                    <p><%= reminder.description %></p>
+                    <p class="main-p"><%= reminder.description %></p>
                   </div>
 
                   <% if (reminder.subtasks.length > 0) { %>

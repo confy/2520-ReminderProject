@@ -1,6 +1,5 @@
 const getUserById = require('./userController.js').getUserById
 const formatRelative = require('date-fns/formatRelative')
-const dateFNS = require('date-fns')
 
 const formatSubtasks = (body) => {
     let subtasks = []

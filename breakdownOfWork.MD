@@ -122,3 +122,5 @@
   Add logout route/button
   
   Add css to single reminder
+
+  Edit css for index.ejs / add time

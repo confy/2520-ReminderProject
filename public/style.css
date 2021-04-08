@@ -2,6 +2,9 @@
   display: inline-block
 }
 
+.container {
+  margin: 10px;
+}
 
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -36,10 +39,11 @@ h4 #status {
   margin: 20px 0px -5px 0px;
 }
 
-.page-header {
+h1 .page-header-single {
   background-color: transparent;
   font-size: large;
   padding: 5px;
+  font-size: 16px;
 }
 
 header.masthead {
@@ -220,4 +224,12 @@ div .form-check-single {
 
 .btn-time:hover {
   opacity: 1.0;
+}
+
+.main-p {
+  width: 60%;
+}
+
+.pull-right-diy {
+  float:right;
 }
