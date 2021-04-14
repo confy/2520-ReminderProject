@@ -22,12 +22,15 @@ const randomAnimal = () => {
 }
 
 // Login routes
-router.get("/login", forwardAuthenticated, (req, res) => res.render("auth/login"));
+router.get("/login", forwardAuthenticated, (req, res) => {
+  let failure = req.query.failed
+  res.render("auth/login", { failed: failure });
+})
 router.post(
     "/login",
     passport.authenticate("local", {
         successRedirect: "/reminder/index",
-        failureRedirect: "/login",
+        failureRedirect: "/auth/login?failed=true",
     })
 );
 
