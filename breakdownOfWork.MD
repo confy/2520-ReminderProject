@@ -97,6 +97,8 @@
 
   Add display of PFP to header and friends pages
 
+  Made tags display random colors
+
 ### Victor Valero:
   Fix time issue
 
