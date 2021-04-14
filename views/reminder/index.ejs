@@ -1,3 +1,9 @@
+<% const colors = ["bg-primary","bg-secondary","bg-success","bg-danger","bg-warning","bg-info"] %>
+        <% const randColor = () => {%> 
+        <%  const n = Math.floor(Math.random() * colors.length);%> 
+        <%  return colors[n] %> 
+<% } %> 
+
 <div class="container">
   <h1 class="page-header">Your reminders</h1>
 
@@ -16,10 +22,10 @@
           <p class="time-main">Complete by: <%= reminderItem.reminderTime.split('T')[0] %></p>
           <% } %>
         </span>
-
+        
       <% reminderItem.tags.forEach((tag) => { %>
         <div class = "d-inline m-1 tags">
-          <span class="d-inline badge rounded-pill bg-warning text-dark ">
+          <span class="d-inline badge rounded-pill <%= randColor() %> text-light ">
             <%= tag %>
           </span>
         </div>
@@ -66,7 +72,7 @@
 
                     <% reminder.tags.forEach((tag) => { %>
                         <div class = "d-inline m-1 tags">
-                          <span class="d-inline badge rounded-pill bg-warning text-dark ">
+                          <span class="d-inline badge rounded-pill <%= randColor() %> text-light ">
                             <%= tag %>
                           </span>
                         </div>

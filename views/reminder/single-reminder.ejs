@@ -1,3 +1,8 @@
+<% const colors = ["bg-primary","bg-secondary","bg-success","bg-danger","bg-warning","bg-info"] %>
+        <% const randColor = () => {%> 
+        <%  const n = Math.floor(Math.random() * colors.length);%> 
+        <%  return colors[n] %> 
+<% } %> 
 <div class="container">
     <ul class="list-group">
       <li class="list-group-item">
@@ -8,7 +13,7 @@
         <% } else {%>
           <% reminderItem.tags.forEach((tag) => { %>
             <div class = "d-inline m-1 tags">
-              <span class="d-inline badge rounded-pill bg-warning text-dark ">
+              <span class="d-inline badge rounded-pill <%= randColor() %> text-light ">
                 <%= tag %>
               </span>
             </div>

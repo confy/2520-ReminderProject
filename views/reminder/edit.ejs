@@ -1,3 +1,9 @@
+<% const colors = ["bg-primary","bg-secondary","bg-success","bg-danger","bg-warning","bg-info"] %>
+        <% const randColor = () => {%> 
+        <%  const n = Math.floor(Math.random() * colors.length);%> 
+        <%  return colors[n] %> 
+<% } %> 
+
 <div class="container">
   <h1 class="page-header">Edit</h1>
   <form action=<%= "/reminder/update/" + reminderItem.id %> method="POST">
@@ -14,7 +20,7 @@
     <div class="form-group" id="tagList">
       <label>Tags</label>
       <% reminderItem.tags.forEach((tag) => {%>
-        <span class="d-inline badge rounded-pill bg-warning text-dark m-1"> 
+        <span class="d-inline badge rounded-pill <%= randColor() %> text-light m-1"> 
           <%= tag %>
         </span>
         <input type="hidden" name="tag-<%= tag %>" value="tag-<%= tag %>">

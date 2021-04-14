@@ -28,6 +28,20 @@ subtaskCreateBtn.addEventListener("click", () =>{
     createSubtaskElem()
 })
 
+const colors = [
+    "bg-primary",
+    "bg-secondary",
+    "bg-success",
+    "bg-danger",
+    "bg-warning",
+    "bg-info"
+]
+
+const randColor = () => {
+    const n = Math.floor(Math.random() * colors.length);
+    return colors[n] 
+}
+
 const tagTextArea = document.querySelector('#createTagTextArea')
 const tagCreateBtn = document.querySelector('#createTag')
 const tagList = document.querySelector('#tagList')
@@ -36,7 +50,7 @@ const createTagElem = () => {
     let newTag = tagTextArea.value
 
     tagList.innerHTML += `
-    <span class="d-inline badge rounded-pill bg-warning text-dark m-1">
+    <span class="d-inline badge rounded-pill ${randColor()} text-light m-1">
     ${newTag}
     <input type="hidden" name="tag-${newTag}" value="tag-${newTag}">
     </span>`
