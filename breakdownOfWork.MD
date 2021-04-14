@@ -116,6 +116,8 @@
 
   Modified main page's layout to be easier to read
   
+  Fix login error when entering a non existent user
+  
 ### Ingrid Zeng:
   Fix time issue
 
