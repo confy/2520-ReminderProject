@@ -9,7 +9,7 @@
   
   Remove displaying hardcoded reminders
 
-### Victor Valero:
+### Walero:
   Integrate passport login
   
   Isolate user reminders behind login
@@ -44,7 +44,7 @@
   
   Tweak Update and Create functions to work with subtasks
 
-### Victor Valero:
+### Walero:
   Make friends page
   
   List current friends and the amount of reminers they have
@@ -99,7 +99,7 @@
 
   Made tags display random colors
 
-### Victor Valero:
+### Walero:
   Fix time issue
 
   Change reminder ID creation
